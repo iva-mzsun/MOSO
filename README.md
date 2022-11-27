@@ -2,6 +2,7 @@
 
 ## Involved Metrics
 FVD: https://github.com/universome/stylegan-v
+
 PSNR/SSIM/LPIPS: https://github.com/francois-rozet/piqa
 
 ## TODO
