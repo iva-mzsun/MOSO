@@ -1,11 +1,11 @@
 # MOSO: Decomposing MOtion, Scene and Object for Video Prediction
 
 
-```HTML
+
 <video controls>
     <source id="mp4" src="RoboNet256x_2to10_n10.mp4" type="video/mp4">
 </video>
-```
+
 
 More samples is availble in: https://anonymous202203.github.io/MOSO
 
