@@ -1,11 +1,10 @@
-# MOSO
+# MOSO: Decomposing MOtion, Scene and Object for Video Prediction
 
-## Video Prediction
+## Involved Metrics
+FVD: https://github.com/universome/stylegan-v
+PSNR/SSIM/LPIPS: https://github.com/francois-rozet/piqa
 
-
-## Video Generation
-
-
-## Video Frame Interpolation
-
+## TODO
+- [x] Release code
+- [ ] Provide checkpoints
 
