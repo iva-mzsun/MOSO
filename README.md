@@ -1,6 +1,6 @@
 # MOSO: Decomposing MOtion, Scene and Object for Video Prediction
 
-![](https://github.com/anonymous202203/MOSO/blob/main/RoboNet256x_2to10_n10.mp4)
+![](https://github.com/anonymous202203/MOSO/blob/main/sample/RoboNet256x_2to10_n10.gif)
 
 More samples is availble in: https://anonymous202203.github.io/MOSO
 
