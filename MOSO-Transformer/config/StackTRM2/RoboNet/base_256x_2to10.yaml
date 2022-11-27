@@ -1,0 +1,67 @@
+train:
+  wandb: True
+  device: ~
+  local_rank: ~
+  task: video_prediction
+  exp_name: RoboNet_256rs_2to10_noisy
+
+  deepspeed_config: config/deepspeed/deepspeed_base_fp16_bs6_lr3e-5.json
+  num_train_steps: 1000000
+  num_valid_steps: 2500
+  save_ckpt_steps: 5000
+  gamma: cosine
+  convert_loss_to_fp32: True
+
+generation:
+  batch_size: 1
+  topk: -1
+  samples: 1
+  timesteps: 8
+  temperature: 0
+  show_process: True
+
+tokenizer:
+  type: shareCB # [default, shareCB]
+  num_frames: 12  # number of frames encoded by mocovqvae
+  pre_frame_num: 2
+  base_frame_num: 2
+
+vqvae:
+  config_file: MoCoVQVAE/config/mocovqvae_wcd_sCB/RoboNet/MoCoVQVAEwCD_im256_12frames.yaml
+  checkpoint: experiments/exp_vqvae/MoCoVQVAEwCDsCB_RoboNet_im256_12frames_DEwTA_2022-10-25-12-49-34/MoCoVQVAE_wCD_shareCB_iter175000.pth
+
+dataset:
+  name: RoboNet
+  cname: CustomVPDataset_FixPreMo
+  pin_memory: False
+  shuffle: False
+  num_worker: 6
+  pre_frame_num: 2
+  train:
+    tokens_tar_dir: datasets/RoboNet/tokens/im256_bg3_id4_mo5/train/FPS32
+    tokens_pre_dir: datasets/RoboNet/tokens/im256_bg3_id4_mo5_first2frames/train/FPS32
+  valid:
+    tokens_tar_dir: datasets/RoboNet/tokens/im256_bg3_id4_mo5/valid/FPS32
+    tokens_pre_dir: datasets/RoboNet/tokens/im256_bg3_id4_mo5_first2frames/valid/FPS32
+
+model:
+  name: StackTRM2_shareCB_VP_wd_fixpremo_noise  # wd: weighted diff
+
+  transformer: stack
+  num_layer: 16
+  mo_num_layer: 8
+  embed_dim: 758
+  hidden_dim: 1024
+  immediate_hidden_dim: 2048
+  encoder_opt:
+    num_head: 8
+
+  bg_token_length: 1024 # H-32, W-32
+  id_token_length: 256  # H-16, W-16
+  mo_token_length: 768 # T-12, H-8, W-8
+  max_input_length: 1300 # max(bg + id + T + cmd, mo + cmd)
+  dropout: 0.1
+
+  checkpoint_path: ~
+  pretrain_path: ~
+  load_strict: True

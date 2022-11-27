@@ -1,0 +1,48 @@
+train:
+  wandb: True
+  device: ~
+  local_rank: ~
+  exp_name: base_switchLN
+
+  num_train_steps: 200000
+  num_valid_steps: 5000
+  save_ckpt_steps: 5000
+  batch_size: 16
+
+  learning_rate: !!float 1e-4
+  optimizer: Adam
+  gamma: cosine
+
+tokenizer: ~
+vqvae:
+  config_file: moco_vqvae/config/MoCoVQVAEwCD/UCF101/MoCoVQVAEwCD_im256_8frames.yaml
+  checkpoint: experiments/exp_vqvae/MoCoVQVAEwCD_UCF_im256_8frames_2022-05-15-20-47-40/MoCoVQVAE_wCD_iter250000.pth
+
+dataset:
+  name: ucf101
+  cname: SingleMoDataset
+  pin_memory: True
+  shuffle: False
+  num_worker: 4
+  num_tokens: 576
+  train:
+    tokens_dir: /home/zhongguokexueyuanzidonghuayanjiusuo/mzsun/codes/MoCo/datasets/UCF101_im128_FPS20/train
+  valid:
+    tokens_dir: /home/zhongguokexueyuanzidonghuayanjiusuo/mzsun/codes/MoCo/datasets/UCF101_im128_FPS20/valid
+
+model:
+  name: base
+  num_layer: 12
+  embed_dim: 256
+  hidden_dim: 1024
+  immediate_hidden_dim: 2048
+  encoder_opt:
+    num_head: 8
+    switch_ln: True
+
+  max_input_length: 600
+  dropout: 0.1
+
+  checkpoint_path: ~
+  pretrain_path: ~
+  load_strict: ~

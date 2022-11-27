@@ -1,0 +1,131 @@
+2021-09-18 16:33:42,612 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - Experiment information is saved in experiments/MoCoVQVAE_msrvtt_2021-09-18-16-33-42
+2021-09-18 16:33:42,613 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - Parameters' setting: 
+2021-09-18 16:33:42,613 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO -   dataset
+2021-09-18 16:33:42,614 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO -       name      msrvtt
+2021-09-18 16:33:42,614 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO -       train
+2021-09-18 16:33:42,614 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO -           batch_size          8
+2021-09-18 16:33:42,615 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO -           img_size          256
+2021-09-18 16:33:42,615 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO -           num_workers          2
+2021-09-18 16:33:42,615 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO -           shuffle          False
+2021-09-18 16:33:42,615 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO -           pin_memory          True
+2021-09-18 16:33:42,616 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO -           idspath          /home/zhongguokexueyuanzidonghuayanjiusuo/datasets/msrvtt/train_frames_ids.json
+2021-09-18 16:33:42,616 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO -           datapath          /home/zhongguokexueyuanzidonghuayanjiusuo/datasets/msrvtt/frames
+2021-09-18 16:33:42,616 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO -       val
+2021-09-18 16:33:42,617 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO -           batch_size          8
+2021-09-18 16:33:42,617 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO -           img_size          256
+2021-09-18 16:33:42,617 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO -           num_workers          2
+2021-09-18 16:33:42,618 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO -           shuffle          False
+2021-09-18 16:33:42,618 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO -           pin_memory          True
+2021-09-18 16:33:42,618 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO -           idspath          /home/zhongguokexueyuanzidonghuayanjiusuo/datasets/msrvtt/val_frames_ids.json
+2021-09-18 16:33:42,618 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO -           datapath          /home/zhongguokexueyuanzidonghuayanjiusuo/datasets/msrvtt/frames
+2021-09-18 16:33:42,619 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO -   model
+2021-09-18 16:33:42,619 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO -       name      MoCoVQVAE
+2021-09-18 16:33:42,619 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO -       checkpoint_path      None
+2021-09-18 16:33:42,619 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO -       downsample_c      [4, 8, 8]
+2021-09-18 16:33:42,620 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO -       downsample_m      8
+2021-09-18 16:33:42,620 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO -       encoder_c_dim      128
+2021-09-18 16:33:42,620 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO -       encoder_c_layer      4
+2021-09-18 16:33:42,621 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO -       encoder_m_dim      128
+2021-09-18 16:33:42,621 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO -       encoder_m_layer      4
+2021-09-18 16:33:42,621 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO -       decoder_dim      128
+2021-09-18 16:33:42,622 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO -       decoder_layer_per_stack      1
+2021-09-18 16:33:42,622 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO -       codebook_c_dim      128
+2021-09-18 16:33:42,622 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO -       codebook_c_num      2048
+2021-09-18 16:33:42,622 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO -       codebook_m_dim      128
+2021-09-18 16:33:42,623 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO -       codebook_m_num      2048
+2021-09-18 16:33:42,623 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO -       content_loss_weight      1.0
+2021-09-18 16:33:42,623 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO -       motion_loss_weight      1.0
+2021-09-18 16:33:42,623 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO -   train
+2021-09-18 16:33:42,624 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO -       device      cuda:0
+2021-09-18 16:33:42,624 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO -       local_rank      0
+2021-09-18 16:33:42,624 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO -       exp_name      MoCoVQVAE_msrvtt_2021-09-18-16-33-42
+2021-09-18 16:33:42,624 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO -       save_path      experiments/MoCoVQVAE_msrvtt_2021-09-18-16-33-42
+2021-09-18 16:33:42,625 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO -       learning_rate      0.0003
+2021-09-18 16:33:42,625 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO -       LRsche      True
+2021-09-18 16:33:42,625 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO -       num_epochs      2000
+2021-09-18 16:33:42,625 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO -       num_warmup_steps      None
+2021-09-18 16:33:42,625 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO -       num_training_updates      100000
+2021-09-18 16:33:42,626 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO -       num_validation_steps      1000
+2021-09-18 16:33:42,626 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO -       save_ckpt_per_iter      20000
+2021-09-18 16:33:42,626 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - Start to get dataset msrvtt...
+2021-09-18 16:33:42,627 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - Start to load dataset msrvtt...
+2021-09-18 16:33:42,664 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - dataset msrvtt has train data 9000, val data 739.
+2021-09-18 16:33:42,665 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - testset is Valid.
+2021-09-18 16:33:42,665 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - epochs:2000, tot_iteration: 100000, warm_up:10000
+2021-09-18 16:33:42,665 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - Start to create model MoCoVQVAE
+2021-09-18 16:33:43,241 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - Start to initialize optimizer and lrscheduler...
+2021-09-18 16:33:43,244 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - Use Learning rate scheduler!
+2021-09-18 16:33:43,245 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - Start to training...
+2021-09-18 16:38:07,440 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - 0/49/100000 lr:0.00000 loss:5.73 val:-1.00 left_time:149.70h
+2021-09-18 16:42:29,079 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - 0/99/100000 lr:0.00000 loss:5.56 val:-1.00 left_time:147.39h
+2021-09-18 16:46:50,622 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - 0/149/100000 lr:0.00000 loss:5.14 val:-1.00 left_time:146.57h
+2021-09-18 16:50:08,399 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - 0/199/100000 lr:0.00001 loss:4.78 val:-1.00 left_time:137.24h
+2021-09-18 16:52:10,129 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - 0/249/100000 lr:0.00001 loss:4.98 val:-1.00 left_time:123.17h
+2021-09-18 16:54:12,077 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - 0/299/100000 lr:0.00001 loss:4.95 val:-1.00 left_time:113.82h
+2021-09-18 16:56:14,070 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - 0/349/100000 lr:0.00001 loss:4.94 val:-1.00 left_time:107.14h
+2021-09-18 16:58:16,084 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - 0/399/100000 lr:0.00001 loss:4.60 val:-1.00 left_time:102.13h
+2021-09-18 17:00:18,083 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - 0/449/100000 lr:0.00001 loss:4.24 val:-1.00 left_time:98.22h
+2021-09-18 17:02:20,100 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - 0/499/100000 lr:0.00002 loss:4.46 val:-1.00 left_time:95.10h
+2021-09-18 17:04:22,092 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - 0/549/100000 lr:0.00002 loss:4.41 val:-1.00 left_time:92.53h
+2021-09-18 17:06:24,607 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - 1/599/100000 lr:0.00002 loss:4.74 val:-1.00 left_time:90.41h
+2021-09-18 17:08:26,593 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - 1/649/100000 lr:0.00002 loss:4.25 val:-1.00 left_time:88.59h
+2021-09-18 17:10:28,548 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - 1/699/100000 lr:0.00002 loss:4.49 val:-1.00 left_time:87.02h
+2021-09-18 17:12:30,545 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - 1/749/100000 lr:0.00002 loss:4.82 val:-1.00 left_time:85.66h
+2021-09-18 17:14:32,496 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - 1/799/100000 lr:0.00002 loss:4.36 val:-1.00 left_time:84.47h
+2021-09-18 17:16:34,546 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - 1/849/100000 lr:0.00003 loss:4.17 val:-1.00 left_time:83.41h
+2021-09-18 17:18:36,501 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - 1/899/100000 lr:0.00003 loss:4.41 val:-1.00 left_time:82.47h
+2021-09-18 17:20:38,504 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - 1/949/100000 lr:0.00003 loss:4.59 val:-1.00 left_time:81.62h
+2021-09-18 17:22:40,488 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - ====================validation start========================
+2021-09-18 17:22:40,489 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - Start to Validation for iter 1000..
+2021-09-18 17:22:43,750 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - 0/46   rec:0.7895887494087219  psnr:14.269395005455719  ssim:0.5047559113476807
+2021-09-18 17:24:44,014 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - Validation finished after 123.3930835723877s.
+2021-09-18 17:24:44,015 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - rec_error:0.9528656601905823, psnr_metric:12.907628222008123, ssim_metric:0.45026943680314424
+2021-09-18 17:24:44,015 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - ====================validation  end========================
+2021-09-18 17:24:44,016 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - 1/999/100000 lr:0.00003 loss:4.22 val:-1.00 left_time:84.26h
+2021-09-18 17:26:45,236 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - 1/1049/100000 lr:0.00003 loss:4.62 val:-1.00 left_time:83.38h
+2021-09-18 17:28:47,051 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - 1/1099/100000 lr:0.00003 loss:4.60 val:-1.00 left_time:82.59h
+2021-09-18 17:30:49,487 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - 2/1149/100000 lr:0.00003 loss:4.36 val:-1.00 left_time:81.88h
+2021-09-18 17:32:51,326 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - 2/1199/100000 lr:0.00004 loss:4.27 val:-1.00 left_time:81.21h
+2021-09-18 17:34:53,285 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - 2/1249/100000 lr:0.00004 loss:4.65 val:-1.00 left_time:80.60h
+2021-09-18 17:36:55,351 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - 2/1299/100000 lr:0.00004 loss:4.60 val:-1.00 left_time:80.04h
+2021-09-18 17:38:57,383 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - 2/1349/100000 lr:0.00004 loss:4.51 val:-1.00 left_time:79.51h
+2021-09-18 17:40:59,473 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - 2/1399/100000 lr:0.00004 loss:4.25 val:-1.00 left_time:79.02h
+2021-09-18 17:43:01,489 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - 2/1449/100000 lr:0.00004 loss:4.54 val:-1.00 left_time:78.56h
+2021-09-18 17:45:03,516 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - 2/1499/100000 lr:0.00005 loss:4.45 val:-1.00 left_time:78.13h
+2021-09-18 17:47:05,569 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - 2/1549/100000 lr:0.00005 loss:4.35 val:-1.00 left_time:77.72h
+2021-09-18 17:49:07,597 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - 2/1599/100000 lr:0.00005 loss:4.39 val:-1.00 left_time:77.34h
+2021-09-18 17:51:09,628 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - 2/1649/100000 lr:0.00005 loss:4.69 val:-1.00 left_time:76.98h
+2021-09-18 17:53:12,217 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - 3/1699/100000 lr:0.00005 loss:4.32 val:-1.00 left_time:76.65h
+2021-09-18 17:55:14,229 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - 3/1749/100000 lr:0.00005 loss:4.18 val:-1.00 left_time:76.32h
+2021-09-18 17:57:16,205 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - 3/1799/100000 lr:0.00005 loss:4.72 val:-1.00 left_time:76.01h
+2021-09-18 17:59:18,243 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - 3/1849/100000 lr:0.00006 loss:4.47 val:-1.00 left_time:75.72h
+2021-09-18 18:01:20,237 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - 3/1899/100000 lr:0.00006 loss:4.40 val:-1.00 left_time:75.44h
+2021-09-18 18:03:22,209 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - 3/1949/100000 lr:0.00006 loss:4.18 val:-1.00 left_time:75.17h
+2021-09-18 18:05:24,231 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - ====================validation start========================
+2021-09-18 18:05:24,231 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - Start to Validation for iter 2000..
+2021-09-18 18:05:27,470 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - 0/46   rec:0.7343379855155945  psnr:14.646855350089213  ssim:0.4974269333635408
+2021-09-18 18:07:26,644 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - Validation finished after 122.28558254241943s.
+2021-09-18 18:07:26,644 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - rec_error:0.886928141117096, psnr_metric:13.26259734429035, ssim_metric:0.454589460613433
+2021-09-18 18:07:26,645 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - ====================validation  end========================
+2021-09-18 18:07:26,645 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - 3/1999/100000 lr:0.00006 loss:4.69 val:-1.00 left_time:76.58h
+2021-09-18 18:09:27,822 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - 3/2049/100000 lr:0.00006 loss:4.39 val:-1.00 left_time:76.28h
+2021-09-18 18:11:29,536 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - 3/2099/100000 lr:0.00006 loss:4.46 val:-1.00 left_time:76.00h
+2021-09-18 18:13:31,379 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - 3/2149/100000 lr:0.00006 loss:4.53 val:-1.00 left_time:75.74h
+2021-09-18 18:15:33,229 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - 3/2199/100000 lr:0.00007 loss:4.43 val:-1.00 left_time:75.48h
+2021-09-18 18:17:35,637 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - 4/2249/100000 lr:0.00007 loss:4.36 val:-1.00 left_time:75.25h
+2021-09-18 18:19:37,559 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - 4/2299/100000 lr:0.00007 loss:4.20 val:-1.00 left_time:75.01h
+2021-09-18 18:21:39,344 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - 4/2349/100000 lr:0.00007 loss:4.23 val:-1.00 left_time:74.78h
+2021-09-18 18:23:41,166 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - 4/2399/100000 lr:0.00007 loss:4.49 val:-1.00 left_time:74.56h
+2021-09-18 18:25:43,055 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - 4/2449/100000 lr:0.00007 loss:4.39 val:-1.00 left_time:74.35h
+2021-09-18 18:27:44,887 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - 4/2499/100000 lr:0.00008 loss:4.23 val:-1.00 left_time:74.15h
+2021-09-18 18:29:46,737 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - 4/2549/100000 lr:0.00008 loss:4.22 val:-1.00 left_time:73.95h
+2021-09-18 18:31:48,539 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - 4/2599/100000 lr:0.00008 loss:4.42 val:-1.00 left_time:73.76h
+2021-09-18 18:33:50,347 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - 4/2649/100000 lr:0.00008 loss:4.97 val:-1.00 left_time:73.57h
+2021-09-18 18:35:52,178 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - 4/2699/100000 lr:0.00008 loss:4.18 val:-1.00 left_time:73.39h
+2021-09-18 18:37:54,030 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - 4/2749/100000 lr:0.00008 loss:4.01 val:-1.00 left_time:73.22h
+2021-09-18 18:39:55,865 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - 4/2799/100000 lr:0.00008 loss:3.86 val:-1.00 left_time:73.05h
+2021-09-18 18:41:58,270 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - 5/2849/100000 lr:0.00009 loss:3.99 val:-1.00 left_time:72.89h
+2021-09-18 18:44:00,059 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - 5/2899/100000 lr:0.00009 loss:4.04 val:-1.00 left_time:72.73h
+2021-09-18 18:46:01,895 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - 5/2949/100000 lr:0.00009 loss:3.89 val:-1.00 left_time:72.57h
+2021-09-18 18:48:03,737 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - ====================validation start========================
+2021-09-18 18:48:03,739 - MoCoVQVAE_msrvtt_2021-09-18-16-33-42 - INFO - Start to Validation for iter 3000..

@@ -1,0 +1,66 @@
+train:
+  wandb: True
+  device: ~
+  local_rank: ~
+  task: video_prediction
+  exp_name: KTH_64rs_16f_fps25_stacktrm2_10to10_moco
+
+  deepspeed_config: config/deepspeed/deepspeed_base_fp16_bs16_lr5e-5.json
+  num_train_steps: 1000000
+  num_valid_steps: 2500
+  save_ckpt_steps: 5000
+  gamma: cosine
+  convert_loss_to_fp32: True
+
+generation:
+  batch_size: 1
+  topk: -1
+  samples: 1
+  timesteps: 8
+  temperature: 0
+  show_process: True
+
+tokenizer:
+  type: shareCB # [default, shareCB]
+  num_frames: 20  # number of frames encoded by mocovqvae
+  pre_frame_num: 10
+
+vqvae:
+  config_file: ?
+  checkpoint: ?
+
+dataset:
+  name: KTH
+  cname: CustomVPDataset_FixPreMo
+  pin_memory: False
+  shuffle: False
+  num_worker: 0
+  pre_frame_num: 10
+  train:
+    tokens_tar_dir: datasets/KTH/tokens/?/train/FPS25
+    tokens_pre_dir: datasets/KTH/tokens/?/train/FPS25
+  valid:
+    tokens_tar_dir: datasets/KTH/tokens/?/valid/FPS25
+    tokens_pre_dir: datasets/KTH/tokens/?/valid/FPS25
+
+model:
+  name: StackTRM2_shareCB_VP_wd_fixpremo_moco  # wd: weighted diff
+
+  transformer: stack
+  num_layer: 16
+  mo_num_layer: 8
+  embed_dim: 758
+  hidden_dim: 1024
+  immediate_hidden_dim: 2048
+  encoder_opt:
+    num_head: 8
+
+  bg_token_length: 256 # H-16, W-16
+  id_token_length: 256  # H-16, W-16
+  mo_token_length: 1280 # T-20, H-8, W-8
+  max_input_length: 1300 # max(bg + id + T + cmd, mo + cmd)
+  dropout: 0.3
+
+  checkpoint_path: ~
+  pretrain_path: ~
+  load_strict: True

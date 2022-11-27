@@ -1,0 +1,58 @@
+train:
+  wandb: True
+  device: ~
+  local_rank: ~
+  exp_name: base_cosine_lr2e-4
+
+  num_train_steps: 100000
+  num_valid_steps: 2500
+  save_ckpt_steps: 5000
+  batch_size: 16
+
+  learning_rate: !!float 2e-4
+  optimizer: Adam
+  gamma: cosine
+
+generation:
+  batch_size: 1
+  samples: 2
+  timesteps: 8
+  show_process: True
+
+tokenizer: ~
+vqvae:
+  config_file: moco_vqvae/config/MoCoVQVAEwCD/FaceForensics/MoCoVQVAEwCD_im128_woPT_dbBSLR.yaml
+  checkpoint: experiments/exp_vqvae/MoCoVQVAEwCD_Face_im128_woPT_dbBS&LR_2022-05-31-15-39-07/MoCoVQVAE_wCD_iter40000.pth
+
+dataset:
+  name: Face
+  cname: SingleMoDataset
+  pin_memory: True
+  shuffle: False
+  num_worker: 4
+  num_tokens: 576
+  train:
+    tokens_dir: /home/zhongguokexueyuanzidonghuayanjiusuo/mzsun/codes/MoCo/MoCo_VG/datasets/FaceForensics/im128_token/train
+  valid:
+    tokens_dir: /home/zhongguokexueyuanzidonghuayanjiusuo/mzsun/codes/MoCo/MoCo_VG/datasets/FaceForensics/im128_token/valid
+
+model:
+  name: base
+  transformer: bi
+  num_layer: 16
+  embed_dim: 758
+  hidden_dim: 1024
+  immediate_hidden_dim: 2048
+  encoder_opt:
+    num_head: 8
+    switch_ln: False
+
+  bg_token_length: 256
+  id_token_length: 256
+  mo_token_length: 64
+  max_input_length: 600
+  dropout: 0.1
+
+  checkpoint_path: ~
+  pretrain_path: ~
+  load_strict: ~

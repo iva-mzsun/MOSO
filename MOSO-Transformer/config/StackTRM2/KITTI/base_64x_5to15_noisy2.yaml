@@ -1,0 +1,66 @@
+train:
+  wandb: True
+  device: ~
+  local_rank: ~
+  task: video_prediction
+  exp_name: KITTI_64x_5to15_noise_l10+8
+
+  deepspeed_config: config/deepspeed/deepspeed_base_fp16_bs16_lr5e-5.json
+  num_train_steps: 1000000
+  num_valid_steps: 2500
+  save_ckpt_steps: 5000
+  gamma: cosine
+  convert_loss_to_fp32: True
+
+generation:
+  batch_size: 1
+  topk: -1
+  samples: 1
+  timesteps: 8
+  temperature: 0
+  show_process: True
+
+tokenizer:
+  type: shareCB # [default, shareCB]
+  num_frames: 20  # number of frames encoded by mocovqvae
+  pre_frame_num: 5
+
+vqvae:
+  config_file: MoCoVQVAE/config/mocovqvae_wcd_sCB/KITTI/MoCoVQVAEwCD_im64_f2_20frames.yaml
+  checkpoint: experiments/exp_vqvae/MoCoVQVAEwCDsCB_KITTI_im64_20frames_th5_2022-10-25-21-55-49/MoCoVQVAE_wCD_shareCB_iter90000.pth
+
+dataset:
+  name: KITTI
+  cname: CustomVPDataset_FixPreMo
+  pin_memory: False
+  shuffle: False
+  num_worker: 0
+  pre_frame_num: 5
+  train:
+    tokens_tar_dir: datasets/KITTI/tokens/im64_bg2_id2_mo3_aug/train/FPS30
+    tokens_pre_dir: datasets/KITTI/tokens/im64_bg2_id2_mo3_first5frames_aug/train/FPS30
+  valid:
+    tokens_tar_dir: datasets/KITTI/tokens/im64_bg2_id2_mo3/valid/FPS30
+    tokens_pre_dir: datasets/KITTI/tokens/im64_bg2_id2_mo3_first5frames/valid/FPS30
+
+model:
+  name: StackTRM2_shareCB_VP_wd_fixpremo_noise  # wd: weighted diff
+
+  transformer: stack
+  num_layer: 10
+  mo_num_layer: 8
+  embed_dim: 758
+  hidden_dim: 1024
+  immediate_hidden_dim: 2048
+  encoder_opt:
+    num_head: 8
+
+  bg_token_length: 256 # H-16, W-16
+  id_token_length: 256  # H-16, W-16
+  mo_token_length: 1280 # T-20, H-8, W-8
+  max_input_length: 1300 # max(bg + id + T + cmd, mo + cmd)
+  dropout: 0.1
+
+  checkpoint_path: experiments/KITTI_64x_5to15_noise_l10+8_20221031-213750/ckpt/000020000
+  pretrain_path: ~
+  load_strict: True

@@ -1,0 +1,65 @@
+train:
+  wandb: True
+  device: ~
+  local_rank: ~
+  task: video_prediction
+  exp_name: UCF_256rs_6f_fps32_stacktrm2_wd_VP
+
+  deepspeed_config: config/deepspeed/deepspeed_base_fp16_bs8_lr5e-5.json
+  num_train_steps: 1000000
+  num_valid_steps: 2500
+  save_ckpt_steps: 5000
+  gamma: cosine
+  convert_loss_to_fp32: True
+
+generation:
+  batch_size: 1
+  topk: -1
+  samples: 1
+  timesteps: 8
+  temperature: 3
+  show_process: True
+
+tokenizer:
+  type: shareCB # [default, shareCB]
+  num_frames: 6  # number of frames encoded by mocovqvae
+  base_num_frames: 4
+
+vqvae:
+  config_file: MoCoVQVAE/config/mocovqvae_wcd_sCB/UCF101/MoCoVQVAEwCD_im256_6frames_id4_woDISC.yaml
+  checkpoint: experiments/exp_vqvae/MoCoVQVAEwCDsCB_UCF_im256_6frames_bg3_fg4_mo3_woDISC_2022-09-05-18-16-39/MoCoVQVAE_wCD_shareCB_iter275000.pth
+
+dataset:
+  name: UCF101
+  cname: CustomVPDataset
+  pin_memory: True
+  shuffle: False
+  num_worker: 0
+  train:
+    tokens_16f_dir: experiments/exp_vqvae/MoCoVQVAEwCDsCB_UCF_im256_6frames_bg3_fg4_mo3_woDISC_2022-09-05-18-16-39/tokens_vp/total6frames/train/trainval_32fps
+    tokens_1th_dir: experiments/exp_vqvae/MoCoVQVAEwCDsCB_UCF_im256_6frames_bg3_fg4_mo3_woDISC_2022-09-05-18-16-39/tokens_vp/first4frames/train/trainval_32fps
+  valid:
+    tokens_16f_dir: experiments/exp_vqvae/MoCoVQVAEwCDsCB_UCF_im256_6frames_bg3_fg4_mo3_woDISC_2022-09-05-18-16-39/tokens_vp/total6frames/valid/trainval_32fps
+    tokens_1th_dir: experiments/exp_vqvae/MoCoVQVAEwCDsCB_UCF_im256_6frames_bg3_fg4_mo3_woDISC_2022-09-05-18-16-39/tokens_vp/first4frames/valid/trainval_32fps
+
+model:
+  name: StackTRM2_shareCB_VP_wd
+
+  transformer: stack
+  num_layer: 6
+  mo_num_layer: 16
+  embed_dim: 758
+  hidden_dim: 1024
+  immediate_hidden_dim: 2048
+  encoder_opt:
+    num_head: 8
+
+  bg_token_length: 1024 # H-32, W-32
+  id_token_length: 256  # H-16, W-16
+  mo_token_length: 1536 # T-6, H-16, W-16
+  max_input_length: 1536 # max(bg + id + T + cmd, mo + cmd)
+  dropout: 0.1
+
+  checkpoint_path: ~
+  pretrain_path: ~
+  load_strict: True

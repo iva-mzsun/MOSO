@@ -1,0 +1,86 @@
+dataset:
+  name: VideoDiffFrames_EXT
+#  name: VideoDiffFrames_wRP
+  batch_size: 4
+  limit: 0.5
+  img_size: 256
+  num_frames: 20
+  num_workers: 8
+  shuffle: False
+  pin_memory: False
+  ret_mode: 'list'
+  train:
+    idspath: datasets/KITTI/frames/trainval_ids.json
+    usedfps: FPS30
+    datapath: datasets/KITTI/frames
+    save_batch_dir: ~
+  val:
+    idspath: ~
+    usedfps: FPS30
+    datapath: datasets/KITTI/frames/test
+    save_batch_dir: ~
+
+model:
+  name: MoCoVQVAE_wCD_shareCB
+  pretrain_path: experiments/MoCoVQVAEwCDsCB_KITTI_im256_20frames_th5_2022-10-25-14-10-22/MoCoVQVAE_wCD_shareCB_iter140000.pth
+  checkpoint_path: ~
+  load_strict: False
+
+  num_hiddens: 256
+  num_residual_layers: 4
+  num_residual_hiddens: 128
+
+  embedding_dim: 256
+  num_embeddings: 16384 # [4096, 9182, ...]
+
+  ds_content: 3
+  ds_motion: 5  # 20x8x8=1280
+  ds_identity: 4 # 16x16=256
+  ds_background: 3 # 32x32=1024
+  suf_method: conv # [avg_pool, max_pool, conv]
+  decoder_type: decoder_wTA
+  encoder_mo_type: default
+
+  num_head: 4
+  num_group: 4
+  time_head: 5
+
+  ABS_weight: 0.0
+  MSE_weight: 1.0
+  Gen_weight: 0.01
+
+  decay: 0.99
+  if_augcb: 2
+  commitment_cost: 0.25
+  with_lpips: True
+  lpips_factor: 1.0
+
+  disc_name: patchwise
+  disc_opt:
+    input_nc: 60    # 3channel * 20frames
+    n_layers: 2
+    ndf: 16
+    input_formation: concat_c
+
+train:
+  device: ~ # the parameter will be given when training
+  local_rank: ~ # the parameter will be given when training
+  WANDB_OPEN: True
+  find_unused_parameters: True
+
+  # model params
+  exp_name: MoCoVQVAEwCDsCB_KITTI_im256_20frames_th5_wDISC3
+  save_path: experiments/
+
+  # train params
+  learning_rate: !!float 2e-4
+  LRsche: False
+
+  # steps
+  num_epochs: 1000000
+  num_warmup_steps: 0  # null if want to set 0.1 warm up
+  num_training_updates: 100000
+  num_validation_steps: 2500
+  disc_start_step: 100000
+  fullbgid_start: 0
+  save_ckpt_per_iter: 5000

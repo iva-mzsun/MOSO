@@ -1,0 +1,81 @@
+dataset:
+  name: VideoDiffFrames
+  batch_size: 3
+  limit: 0.5
+  img_size: 256
+  num_frames: 12
+  num_workers: 8
+  shuffle: False
+  pin_memory: False
+  train:
+    idspath: ~
+    usedfps: FPS32
+    datapath: datasets/RoboNet/frames_256x/train
+  val:
+    idspath: ~
+    usedfps: FPS32
+    datapath: datasets/RoboNet/frames_256x/test
+
+model:
+  name: MoCoVQVAE_wCD_shareCB
+  pretrain_path: experiments/MoCoVQVAEwCDsCB_RoboNet_im256_12frames_DEwTA_2022-10-21-16-36-14/MoCoVQVAE_wCD_shareCB_iter255000.pth
+  checkpoint_path: experiments/MoCoVQVAEwCDsCB_RoboNet_im256_12frames_DEwTA_2022-10-25-12-49-34/MoCoVQVAE_wCD_shareCB_iter90000.pth
+  load_strict: False
+  num_hiddens: 256
+  num_residual_layers: 4
+  num_residual_hiddens: 128
+
+  embedding_dim: 256
+  num_embeddings: 16384 # [4096, 9182, ...]
+
+  ds_content: 3
+  ds_motion: 5  # 12x8x8=1280
+  ds_identity: 4 # 16x16=256
+  ds_background: 3 # 32x32=1024
+  suf_method: conv # [avg_pool, max_pool, conv]
+  decoder_type: decoder_wTA
+  encoder_mo_type: default
+
+  num_head: 4
+  num_group: 4
+  time_head: 2
+
+  ABS_weight: 1.0
+  MSE_weight: 0.0
+  Gen_weight: 0.1
+
+  decay: 0.99
+  if_augcb: 2
+  commitment_cost: 0.25
+  with_lpips: True
+  lpips_factor: 1.0
+
+  disc_name: patchwise
+  disc_opt:
+    input_nc: 36    # 3channel * 12frames
+    n_layers: 2
+    ndf: 32
+    input_formation: concat_c
+
+train:
+  device: ~ # the parameter will be given when training
+  local_rank: ~ # the parameter will be given when training
+  WANDB_OPEN: True
+  find_unused_parameters: True
+
+  # model params
+  exp_name: MoCoVQVAEwCDsCB_RoboNet_im256_12frames_DEwTA
+  save_path: experiments/
+
+  # train params
+  learning_rate: !!float 2e-4
+  LRsche: False
+
+  # steps
+  num_epochs: 10000
+  num_warmup_steps: 0  # null if want to set 0.1 warm up
+  num_training_updates: 200000
+  num_validation_steps: 2500
+  disc_start_step: 90000
+  fullbgid_start: 0
+  save_ckpt_per_iter: 5000
